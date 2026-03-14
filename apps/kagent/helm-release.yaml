@@ -3,13 +3,14 @@ kind: Application
 metadata:
   name: kagent-chart
   namespace: argocd
+
 spec:
   project: default
 
   source:
-    repoURL: https://charts.kagent.dev
+    repoURL: oci://ghcr.io/kagent-dev/charts
     chart: kagent
-    targetRevision: "*"
+    targetRevision: 0.1.0
 
   destination:
     server: https://kubernetes.default.svc
