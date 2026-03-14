@@ -8,9 +8,9 @@ spec:
   project: default
 
   source:
-    repoURL: oci://ghcr.io/kagent-dev/charts
+    repoURL: oci://ghcr.io/kagent-dev/kagent/helm
     chart: kagent
-    targetRevision: 0.1.0
+    targetRevision: 0.8.0-beta6
     helm: {}
 
   destination:
