@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kagent-chart
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://charts.kagent.dev
+    chart: kagent
+    targetRevision: "*"
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kagent
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
