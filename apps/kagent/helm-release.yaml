@@ -11,6 +11,7 @@ spec:
     repoURL: oci://ghcr.io/kagent-dev/charts
     chart: kagent
     targetRevision: 0.1.0
+    helm: {}
 
   destination:
     server: https://kubernetes.default.svc
