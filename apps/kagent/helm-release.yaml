@@ -8,9 +8,9 @@ spec:
   project: default
 
   source:
-    path: .
-    repoURL: oci://ghcr.io/kagent-dev/kagent/helm/kagent
-    targetRevision: 0.8.0-beta6
+    path: charts/kagent
+    repoURL: https://github.com/nathbalica/kagent-lab
+    targetRevision: main
     helm: {}
 
   destination:
