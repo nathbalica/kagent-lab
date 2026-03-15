@@ -8,8 +8,8 @@ spec:
   project: default
 
   source:
-    repoURL: oci://ghcr.io/kagent-dev/kagent/helm
-    chart: kagent
+    path: .
+    repoURL: oci://ghcr.io/kagent-dev/kagent/helm/kagent
     targetRevision: 0.8.0-beta6
     helm: {}
 
