@@ -15,6 +15,28 @@ cleanup() {
 
 trap cleanup EXIT
 
+require_docker() {
+  if docker info >/dev/null 2>&1; then
+    return 0
+  fi
+
+  cat >&2 <<'EOF'
+Docker nao esta acessivel.
+
+O kind precisa conversar com o daemon do Docker para criar os nodes do cluster.
+No macOS, isso normalmente significa que o Docker Desktop ainda nao iniciou
+completamente.
+
+Verifique:
+  1. Abra o Docker Desktop
+  2. Espere ate aparecer "Engine running"
+  3. Rode: docker info
+  4. Execute novamente este script
+EOF
+
+  exit 1
+}
+
 find_netskope_ca() {
   local keychain
   local candidate
@@ -65,6 +87,8 @@ install_extra_ca_on_kind_nodes() {
 }
 
 echo "Criando cluster..."
+
+require_docker
 
 kind create cluster --name "$CLUSTER_NAME"
 
